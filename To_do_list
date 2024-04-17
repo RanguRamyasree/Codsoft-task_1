@@ -1,0 +1,41 @@
+task={}
+
+#creating the list
+def create(add_data,status):
+
+       task[add_data]={'status':status}
+       print("Successfully added!")
+
+
+#displaying the llist
+def display():
+                 print("your to_do_list is :")
+                 k=0
+                 for i,j in task.items():
+                    k+=1
+                    print(f"{k}.{i}-status:{j["status"]}")
+
+
+#updating the list
+def update(to_do,new_status):
+        task[to_do]['status']=new_status
+        print("updated successfully!")
+
+
+#giving inputs
+
+n_task=int(input("how many tasks you want to add in the list : "))
+
+for i in range (1,n_task+1):
+   add_data=input(f"add your task {i} todo : ")
+   status=input("what is the current status of your task(pending,progress,completed) : ")
+   create(add_data,status)
+display()
+
+n_updates=int(input("enter how many you want to update"))
+
+for i in range(1,n_updates+1):
+    to_do=input("what do you want to update : ")
+    new_status=input("update the status (pending,progress,finished) : ")
+    update(to_do,new_status)
+display()
